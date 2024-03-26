@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "name": "haui-food-docs",
+  "version": "1.0.0",
+  "description": "API HaUI Food documents for developer",
+  "main": "server.js",
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "pro": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
