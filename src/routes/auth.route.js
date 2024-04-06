@@ -18,7 +18,7 @@
  *           schema:
  *             type: object
  *             required:
- *               - name
+ *               - fullname
  *               - email
  *               - password
  *             properties:
@@ -34,23 +34,78 @@
  *                 minLength: 8
  *                 description: At least one number and one letter
  *             example:
- *               name: fake name
- *               email: fake@example.com
- *               password: password1
+ *               fullname: Le Thu Phuong
+ *               email: phuonglethu@me.com
+ *               password: Phuonglethu@2003
  *     responses:
  *       "201":
- *         description: Created
+ *         description: Đăng ký thành công
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 user:
- *                   $ref: '#/components/schemas/User'
- *                 tokens:
- *                   $ref: '#/components/schemas/AuthTokens'
+ *                 code:
+ *                   type: number
+ *                   example: 201
+ *                 message:
+ *                   type: string
+ *                   example: Đăng ký thành công
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     user:
+ *                      type: object
+ *                      properties:
+ *                        _id:
+ *                          type: string
+ *                          example: 5ebac534954b54139806c112
+ *                        email:
+ *                          example: phuonglethu@me.com
+ *                          type: string
+ *                        fullname:
+ *                          type: string
+ *                          example: Le Thu Phuong
+ *                        dateOfBirth:
+ *                          example: 2000-01-01T00:00:00.000Z
+ *                          type: string
+ *                        gender:
+ *                          type: string
+ *                          example: male
+ *                        avatar:
+ *                          example: https://hitly.vn/avatar-default
+ *                          type: string
+ *                        role:
+ *                          type: string
+ *                          example: user
+ *                        lastActive:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                        createdAt:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                        updatedAt:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                     accessToken:
+ *                      type: string
+ *                      example: eyJhbGciOiJIUzMTgsImV4cCI6MTcxMjA2OTMxOH0.3ubMUXRqtQ3AUjap_lK62h4
+ *                     refreshToken:
+ *                      type: string
+ *                      example: eyJhbGciOiJIJ9.eyJpZCI6IjY2MGMwMzU2YLCJleHA2NjMzMTh9.KmmUiHEE
  *       "400":
- *         $ref: '#/components/responses/DuplicateEmail'
+ *         description: Email đã tồn tại
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: number
+ *                   example: 400
+ *                 message:
+ *                   type: string
+ *                   example: Email đã tồn tại
  */
 
 /**
@@ -76,55 +131,73 @@
  *                 type: string
  *                 format: password
  *             example:
- *               email: fake@example.com
- *               password: password1
+ *               email: lethuphuong@me.com
+ *               password: Phuonglethu@2003
  *     responses:
  *       "200":
- *         description: OK
+ *         description: Đăng nhập thành công
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 user:
- *                   $ref: '#/components/schemas/User'
- *                 tokens:
- *                   $ref: '#/components/schemas/AuthTokens'
+ *                 code:
+ *                   type: number
+ *                   example: 201
+ *                 message:
+ *                   type: string
+ *                   example: Đăng nhập thành công
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     user:
+ *                      type: object
+ *                      properties:
+ *                        _id:
+ *                          type: string
+ *                          example: 5ebac534954b54139806c112
+ *                        email:
+ *                          example: phuonglethu@me.com
+ *                          type: string
+ *                        fullname:
+ *                          type: string
+ *                          example: Le Thu Phuong
+ *                        dateOfBirth:
+ *                          example: 2000-01-01T00:00:00.000Z
+ *                          type: string
+ *                        gender:
+ *                          type: string
+ *                          example: male
+ *                        avatar:
+ *                          example: https://hitly.vn/avatar-default
+ *                          type: string
+ *                        role:
+ *                          type: string
+ *                          example: user
+ *                        lastActive:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                        createdAt:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                        updatedAt:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                     accessToken:
+ *                      type: string
+ *                      example: eyJhbGciOiJIUzMTgsImV4cCI6MTcxMjA2OTMxOH0.3ubMUXRqtQ3AUjap_lK62h4
+ *                     refreshToken:
+ *                      type: string
+ *                      example: eyJhbGciOiJIJ9.eyJpZCI6IjY2MGMwMzU2YLCJleHA2NjMzMTh9.KmmUiHEE
  *       "401":
- *         description: Invalid email or password
+ *         description: Tài khoản hoặc mật khẩu không chính xác
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
  *             example:
  *               code: 401
- *               message: Invalid email or password
- */
-
-/**
- * @swagger
- * /auth/logout:
- *   post:
- *     summary: Logout
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - refreshToken
- *             properties:
- *               refreshToken:
- *                 type: string
- *             example:
- *               refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWJhYzUzNDk1NGI1NDEzOTgwNmMxMTIiLCJpYXQiOjE1ODkyOTg0ODQsImV4cCI6MTU4OTMwMDI4NH0.m1U63blB0MLej_WfB7yC2FTMnCziif9X8yzwDEfJXAg
- *     responses:
- *       "204":
- *         description: No content
- *       "404":
- *         $ref: '#/components/responses/NotFound'
+ *               message: Tài khoản hoặc mật khẩu không chính xác
  */
 
 /**
@@ -145,128 +218,51 @@
  *               refreshToken:
  *                 type: string
  *             example:
- *               refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWJhYzUzNDk1NGI1NDEzOTgwNmMxMTIiLCJpYXQiOjE1ODkyOTg0ODQsImV4cCI6MTU4OTMwMDI4NH0.m1U63blB0MLej_WfB7yC2FTMnCziif9X8yzwDEfJXAg
+ *               refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWk1NGI1NDE0ODQs6MTU4OTMwMDI4NH0.m1U63yC2FTMnCziif9X8yzwDEfJXAg
  *     responses:
  *       "200":
- *         description: OK
+ *         description: Refresh token thành công
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/AuthTokens'
- *       "401":
- *         $ref: '#/components/responses/Unauthorized'
- */
-
-/**
- * @swagger
- * /auth/forgot-password:
- *   post:
- *     summary: Forgot password
- *     description: An email will be sent to reset password.
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - email
- *             properties:
- *               email:
- *                 type: string
- *                 format: email
- *             example:
- *               email: fake@example.com
- *     responses:
- *       "204":
- *         description: No content
- *       "404":
- *         $ref: '#/components/responses/NotFound'
- */
-
-/**
- * @swagger
- * /auth/reset-password:
- *   post:
- *     summary: Reset password
- *     tags: [Auth]
- *     parameters:
- *       - in: query
- *         name: token
- *         required: true
- *         schema:
- *           type: string
- *         description: The reset password token
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - password
- *             properties:
- *               password:
- *                 type: string
- *                 format: password
- *                 minLength: 8
- *                 description: At least one number and one letter
- *             example:
- *               password: password1
- *     responses:
- *       "204":
- *         description: No content
- *       "401":
- *         description: Password reset failed
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: number
+ *                   example: 200
+ *                 message:
+ *                   type: string
+ *                   example: Refresh token thành công
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     accessToken:
+ *                      type: string
+ *                      example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWk1NGI1NDE0ODQs6MTU4OTMwMDI4NH0.m1U63yC2FTMnCziif9X8yzwDEfJXAg
+ *       "400":
+ *         description: Token không chính xác
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Error'
- *             example:
- *               code: 401
- *               message: Password reset failed
- */
-
-/**
- * @swagger
- * /auth/send-verification-email:
- *   post:
- *     summary: Send verification email
- *     description: An email will be sent to verify email.
- *     tags: [Auth]
- *     security:
- *       - bearerAuth: []
- *     responses:
- *       "204":
- *         description: No content
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: number
+ *                   example: 400
+ *                 message:
+ *                   type: string
+ *                   example: Token không chính xác
  *       "401":
- *         $ref: '#/components/responses/Unauthorized'
- */
-
-/**
- * @swagger
- * /auth/verify-email:
- *   post:
- *     summary: verify email
- *     tags: [Auth]
- *     parameters:
- *       - in: query
- *         name: token
- *         required: true
- *         schema:
- *           type: string
- *         description: The verify email token
- *     responses:
- *       "204":
- *         description: No content
- *       "401":
- *         description: verify email failed
+ *         description: Token đã hết hạn vui lòng login lại
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Error'
- *             example:
- *               code: 401
- *               message: verify email failed
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: number
+ *                   example: 400
+ *                 message:
+ *                   type: string
+ *                   example: Token đã hết hạn vui lòng login lại
  */
