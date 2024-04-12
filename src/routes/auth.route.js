@@ -266,3 +266,70 @@
  *                   type: string
  *                   example: Token đã hết hạn vui lòng login lại
  */
+
+/**
+ * @swagger
+ * /auth/me:
+ *   get:
+ *     summary: Get my profile
+ *     tags: [Auth]
+ *     responses:
+ *       "200":
+ *         description: Thông tin cá nhân của bạn
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: number
+ *                   example: 200
+ *                 message:
+ *                   type: string
+ *                   example: Thông tin cá nhân của bạn
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     user:
+ *                      type: object
+ *                      properties:
+ *                        _id:
+ *                          type: string
+ *                          example: 5ebac534954b54139806c112
+ *                        email:
+ *                          example: phuonglethu@me.com
+ *                          type: string
+ *                        fullname:
+ *                          type: string
+ *                          example: Le Thu Phuong
+ *                        dateOfBirth:
+ *                          example: 2000-01-01T00:00:00.000Z
+ *                          type: string
+ *                        gender:
+ *                          type: string
+ *                          example: male
+ *                        avatar:
+ *                          example: https://hitly.vn/avatar-default
+ *                          type: string
+ *                        role:
+ *                          type: string
+ *                          example: user
+ *                        lastActive:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                        createdAt:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                        updatedAt:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *       "401":
+ *         description: Bạn cần đăng nhập
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *             example:
+ *               code: 401
+ *               message: Bạn cần đăng nhập
+ */
