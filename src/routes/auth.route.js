@@ -335,6 +335,7 @@
  *               code: 401
  *               message: Bạn cần đăng nhập
  */
+
 /**
  * @swagger
  * /auth/change-password:
@@ -431,5 +432,101 @@
  *             example:
  *               code: 401
  *               message: Bạn cần đăng nhập
+ *
+ */
+
+/**
+ * @swagger
+ * /auth/me:
+ *   put:
+ *     summary: Update my profile
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             optional:
+ *               - fullname
+ *               - dateOfBirth
+ *               - gender
+ *             properties:
+ *               fullname:
+ *                 type: string
+ *                 format: string
+ *               dateOfBirth:
+ *                 type: date
+ *                 format: date
+ *               gender:
+ *                 type: string
+ *                 format: string
+ *             example:
+ *               fullname: Le Thu Phuong
+ *               dateOfBirth: 2003-07-07
+ *               gender: male
+ *     responses:
+ *       "200":
+ *         description: Cập nhật thông tin cá nhân thành công
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: number
+ *                   example: 200
+ *                 message:
+ *                   type: string
+ *                   example: Cập nhật thông tin cá nhân thành công
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     user:
+ *                      type: object
+ *                      properties:
+ *                        _id:
+ *                          type: string
+ *                          example: 5ebac534954b54139806c112
+ *                        email:
+ *                          example: phuonglethu@me.com
+ *                          type: string
+ *                        fullname:
+ *                          type: string
+ *                          example: Le Thu Phuong
+ *                        dateOfBirth:
+ *                          example: 2003-07-07T00:00:00.000Z
+ *                          type: string
+ *                        gender:
+ *                          type: string
+ *                          example: male
+ *                        avatar:
+ *                          example: https://hitly.vn/avatar-default
+ *                          type: string
+ *                        role:
+ *                          type: string
+ *                          example: user
+ *                        lastActive:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                        createdAt:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *                        updatedAt:
+ *                          type: string
+ *                          example: 2024-04-02T13:15:51.633Z
+ *       "401":
+ *         description: Cập nhật thông tin thất bại
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *             example:
+ *               code: 401
+ *               message:
+ *                      - Bạn cần đăng nhập
+ *                      - Bạn cần lớn hơn 18 tuổi
  *
  */
