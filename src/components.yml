@@ -19,6 +19,31 @@ components:
         name: fake name
         role: user
 
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        image:
+          type: string
+          format: uri
+        categoryId:
+          type: string
+          format: objectId
+      example:
+        id: 5ebac534954b54139806c112
+        name: Bánh mì
+        description: Bánh mì cao cấp
+        price: 20000
+        image: https://hitly.vn/avatar-default
+        categoryId: 5ebac534954b54139806c112
+
     Success:
       type: object
       properties:
