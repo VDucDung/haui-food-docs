@@ -44,6 +44,21 @@ components:
         image: https://hitly.vn/avatar-default
         categoryId: 5ebac534954b54139806c112
 
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        image:
+          type: string
+          format: uri
+      example:
+        id: 5ebac534954b54139806c112
+        name: Bánh mì
+        image: https://hitly.vn/avatar-default
+
     Success:
       type: object
       properties:
