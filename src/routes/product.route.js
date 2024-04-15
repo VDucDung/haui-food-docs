@@ -199,7 +199,7 @@
  *         description: Unique identifier of the product to be deleted
  *     responses:
  *       "200":
- *         description: Product successfully deleted
+ *         description: No Content
  *       "401":
  *         $ref: '#/components/responses/Unauthorized'
  *       "403":
