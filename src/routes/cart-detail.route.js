@@ -130,4 +130,42 @@
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  * 
+ *   put:
+ *     summary: Update a cart detail by ID
+ *     description: Users can update a category.
+ *     tags: [Cart-details]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the cart detail to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               productId:
+ *                 type: objectId
+ *               quantity:
+ *                 type: number
+ *             example:
+ *               productId: 6602f79a65bdc867e599b25e
+ *               quantity: 1
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Cart-detail'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
  */
