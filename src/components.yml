@@ -59,6 +59,20 @@ components:
         name: Bánh mì
         image: https://hitly.vn/avatar-default
 
+    Card-detail:
+      type: object
+      properties:
+        id:
+          type: string
+        productId:
+          type: objectId
+        quantity:
+          type: number
+      example:
+        id: 5ebac534954b54139806c112
+        productId: 6602f79a65bdc867e599b25e
+        quantity: 1
+
     Success:
       type: object
       properties:
