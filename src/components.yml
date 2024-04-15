@@ -59,7 +59,7 @@ components:
         name: Bánh mì
         image: https://hitly.vn/avatar-default
 
-    Card-detail:
+    Cart-detail:
       type: object
       properties:
         id:
