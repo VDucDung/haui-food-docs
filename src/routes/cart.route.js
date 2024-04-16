@@ -109,3 +109,33 @@
  *       "403":
  *         $ref: '#/components/responses/Forbidden'
  */
+
+/**
+ * @swagger
+ * /carts/{id}:
+ *   get:
+ *     summary: Get a cart by ID
+ *     description: Retrieve a specific cart by its ID.
+ *     tags: [Carts]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the cart to retrieve
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Cart'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
+ * 
+ */
