@@ -73,6 +73,25 @@ components:
         productId: 6602f79a65bdc867e599b25e
         quantity: 1
 
+    Cart:
+      type: object
+      properties:
+        id:
+          type: string
+          format: objectId
+        userId:
+          type: string
+          format: objectId
+        isOrder:
+          type: boolean
+        totalMoney:
+          type: number
+      example:
+        id: 6603d90f7c2708f66ed2ee4c
+        userId: 65fd6f75b449440a709beaa7
+        isOrder: false
+        totalMoney: 0
+
     Success:
       type: object
       properties:
