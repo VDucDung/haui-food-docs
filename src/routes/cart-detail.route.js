@@ -171,7 +171,7 @@
  * 
  *   delete:
  *     summary: Delete a cart detail by ID
- *     description: Only admins can delete a cart detail.
+ *     description: Users can delete a cart detail.
  *     tags: [Cart-details]
  *     parameters:
  *       - in: path
