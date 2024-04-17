@@ -175,4 +175,25 @@
  *         $ref: '#/components/responses/Forbidden' 
  *       "404":
  *         $ref: '#/components/responses/NotFound'
+ * 
+ *   delete:
+ *     summary: Delete a message by ID
+ *     description: Users can delete a message.
+ *     tags: [Messages]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the message to delete
+ *     responses:
+ *       "200":
+ *         description: No Content
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
  */
