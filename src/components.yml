@@ -112,6 +112,21 @@ components:
         receiverId: 65fd6f75b449440a709beaa7
         message: Hello, world
 
+    Conversation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: objectId
+        participants:
+          type: array
+        message:
+          type: array
+      example:
+        id: 6603d90f7c2708f66ed2ee5c
+        participants: [6603d90f7c2708f66ed2ee4c, 65fd6f75b449440a709beaa7]
+        message: [6602f79a65bdc867e599b25e]
+
     Success:
       type: object
       properties:
