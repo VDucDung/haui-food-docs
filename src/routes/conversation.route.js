@@ -129,4 +129,44 @@
  *         $ref: '#/components/responses/Forbidden' 
  *       "404":
  *         $ref: '#/components/responses/NotFound'
+ * 
+ *   put:
+ *     summary: Update a conversation by ID
+ *     description: Users can update a conversation.
+ *     tags: [Conversations]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the cart to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               participants:
+ *                 type: array
+ *               message:
+ *                 type: array
+ *             example:
+ *               participants: [6602f79a65bdc867e599b25e, 65fd6f75b449440a709beaa7]
+ *               message: [6602f79a65bdc867e599b25e]
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Conversation'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
+ * 
  */
