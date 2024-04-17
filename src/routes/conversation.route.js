@@ -42,4 +42,62 @@
 *         $ref: '#/components/responses/Unauthorized'
 *       "403":
 *         $ref: '#/components/responses/Forbidden'
+*
+*   get:
+*     summary: Get all conversations
+*     description: Retrieve a list of conversations with optional filters.
+*     tags: [Conversations]
+*     parameters:
+*       - in: query
+*         name: name
+*         schema:
+*           type: string
+*         description: Conversation name to filter by
+*       - in: query
+*         name: sortBy
+*         schema:
+*           type: string
+*         description: Sort by query in the form of field:desc/asc (ex. name:asc)
+*       - in: query
+*         name: limit
+*         schema:
+*           type: integer
+*           minimum: 1
+*         default: 10
+*         description: Maximum number of conversations to return
+*       - in: query
+*         name: page
+*         schema:
+*           type: integer
+*           minimum: 1
+*           default: 1
+*         description: Page number of the results
+*     responses:
+*       "200":
+*         description: OK
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 results:
+*                   type: array
+*                   items:
+*                     $ref: '#/components/schemas/Conversation'
+*                 page:
+*                   type: integer
+*                   example: 1
+*                 limit:
+*                   type: integer
+*                   example: 10
+*                 totalPages:
+*                   type: integer
+*                   example: 1
+*                 totalResults:
+*                   type: integer
+*                   example: 1
+*       "401":
+*         $ref: '#/components/responses/Unauthorized'
+*       "403":
+*         $ref: '#/components/responses/Forbidden'
 */
