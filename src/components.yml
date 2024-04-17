@@ -92,6 +92,26 @@ components:
         isOrder: false
         totalMoney: 0
 
+    Message:
+      type: object
+      properties:
+        id:
+          type: string,
+          format: objectId
+        senderId:
+          type: string,
+          format: objectId
+        receiverId:
+          type: string,
+          format: objectId
+        message:
+          type: string
+      example:
+        id: 6603d90f7c2708f66ed2ee4c
+        senderId: 65fd6f75b449440a709beaa7
+        receiverId: 65fd6f75b449440a709beaa7
+        message: Hello, world
+
     Success:
       type: object
       properties:
