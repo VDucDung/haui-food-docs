@@ -101,3 +101,32 @@
 *       "403":
 *         $ref: '#/components/responses/Forbidden'
 */
+
+/**
+ * @swagger
+ * /conversations/{id}:
+ *   get:
+ *     summary: Get a conversation by ID
+ *     description: Retrieve a specific conversation by its ID.
+ *     tags: [Conversations]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the conversation to retrieve
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Conversation'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
+ */
