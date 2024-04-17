@@ -133,4 +133,46 @@
  *         $ref: '#/components/responses/Forbidden' 
  *       "404":
  *         $ref: '#/components/responses/NotFound'
+ * 
+ *   put:
+ *     summary: Update a message by ID
+ *     description: Users can update a message.
+ *     tags: [Messages]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the cart to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               senderId:
+ *                 type: objectId
+ *               receiverId:
+ *                 type: objectId
+ *               message:
+ *                 type: boolean
+ *             example:
+ *               senderId: 6602f79a65bdc867e599b25e
+ *               receiverId: 65fd6f75b449440a709beaa7
+ *               message: Hello
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Message'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
  */
