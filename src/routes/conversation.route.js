@@ -169,4 +169,24 @@
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  * 
+ *   delete:
+ *     summary: Delete a conversation by ID
+ *     description: Users can delete a conversation.
+ *     tags: [Conversations]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the conversation to delete
+ *     responses:
+ *       "200":
+ *         description: No Content
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
  */
