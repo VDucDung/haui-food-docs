@@ -68,10 +68,10 @@
  *           type: string
  *         description: Product name to filter by
  *       - in: query
- *         name: categoryId
+ *         name: productId
  *         schema:
  *           type: string
- *         description: Category ID to filter by
+ *         description: Product ID to filter by
  *       - in: query
  *         name: sortBy
  *         schema:
