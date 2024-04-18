@@ -153,7 +153,7 @@
  *
  *   put:
  *     summary: Update a product
- *     description: Modify details of an existing product. Only admins can update products.
+ *     description: Modify details of an existing product. Only admins or shops can update products.
  *     tags: [Products]
  *     security:
  *       - bearerAuth: []
@@ -186,7 +186,7 @@
  * 
  *   delete:
  *     summary: Delete a product
- *     description: Remove a product from the database. Only admins can delete products.
+ *     description: Remove a product from the database. Only admins or shops can delete products.
  *     tags: [Products]
  *     security:
  *       - bearerAuth: []
