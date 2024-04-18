@@ -184,4 +184,26 @@
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  * 
+ *   delete:
+ *     summary: Delete a order
+ *     description: Users can delete orders.
+ *     tags: [Orders]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Unique identifier of the order to be deleted
+ *     responses:
+ *       "200":
+ *         description: No Content
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden'
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
  */
