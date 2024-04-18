@@ -127,6 +127,31 @@ components:
         participants: [6603d90f7c2708f66ed2ee4c, 65fd6f75b449440a709beaa7]
         message: [6602f79a65bdc867e599b25e]
 
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+          format: objectId
+        userId:
+          type: string
+          format: objectId
+        cartId:
+          type: string
+          format: objectId
+        adress:
+          type: string
+        note:
+          type: string
+        status:
+          type: string
+      example:
+        userId: 6603ea7966785a9c4d3c9d0b
+        cartId: 6603d90f7c2708f66ed2ee4c
+        address: Bac Tu Lien, Ha Noi
+        note: giao sau 2h
+        status: pending
+
     Success:
       type: object
       properties:
