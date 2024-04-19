@@ -146,11 +146,34 @@ components:
         status:
           type: string
       example:
+        id: 6603d90f7c2708f66ed2ee4c
         userId: 6603ea7966785a9c4d3c9d0b
         cartId: 6603d90f7c2708f66ed2ee4c
         address: Bac Tu Lien, Ha Noi
         note: giao sau 2h
         status: pending
+
+    Contact:
+      type: object
+      properties:
+        id:
+          type: string
+          format: objectId
+        fullname:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        message:
+          type: string
+      example:
+        id: 6603d90f7c2708f66ed2ee4c
+        name: fake name
+        email: fake@example.com
+        phone: (+84)12345678
+        message: Hello, world
 
     Success:
       type: object
