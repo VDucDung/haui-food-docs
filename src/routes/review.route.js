@@ -204,4 +204,24 @@
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  * 
+ *   delete:
+ *     summary: Delete a review by ID
+ *     description: Only admins can delete a review.
+ *     tags: [Reviews]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the review to delete
+ *     responses:
+ *       "200":
+ *         description: No Content
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
  */
