@@ -120,3 +120,33 @@
  *       "403":
  *         $ref: '#/components/responses/Forbidden'
  */
+
+
+/**
+ * @swagger
+ * /reviews/{id}:
+ *   get:
+ *     summary: Get a review by ID
+ *     description: Retrieve a specific review by its ID.
+ *     tags: [Reviews]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the review to retrieve
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Review'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
+ */
