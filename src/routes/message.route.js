@@ -144,7 +144,7 @@
  *         schema:
  *           type: string
  *         required: true
- *         description: ID of the cart to update
+ *         description: ID of the message to update
  *     requestBody:
  *       required: true
  *       content:

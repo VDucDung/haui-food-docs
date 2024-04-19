@@ -142,4 +142,52 @@
  *         $ref: '#/components/responses/Forbidden' 
  *       "404":
  *         $ref: '#/components/responses/NotFound'
+ * 
+ *   put:
+ *     summary: Update a contact by ID
+ *     description: Users can update a contact.
+ *     tags: [Contacts]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the contact to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               fullname:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: must be unique
+ *               phone:
+ *                 type: string
+ *               message:
+ *                  type: string
+ *             example:
+ *               fullname: fake name
+ *               email: fake@example.com
+ *               phone: (+84)12345678
+ *               message: fake message
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Contact'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
+ * 
  */
