@@ -190,4 +190,24 @@
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  * 
+ *   delete:
+ *     summary: Delete a contact by ID
+ *     description: Users can delete a contact.
+ *     tags: [Contacts]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the contact to delete
+ *     responses:
+ *       "200":
+ *         description: No Content
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
  */
