@@ -149,4 +149,59 @@
  *         $ref: '#/components/responses/Forbidden' 
  *       "404":
  *         $ref: '#/components/responses/NotFound'
+ * 
+ *   put:
+ *     summary: Update a review by ID
+ *     description: Only admins can update a review.
+ *     tags: [Reviews]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID of the review to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userId:
+ *                 type: string
+ *                 format: objectId
+ *               productId:
+ *                 type: string
+ *                 format: objectId
+ *               orderId:
+ *                 type: string
+ *                 format: objectId
+ *               rating:
+ *                  type: number
+ *               isReview:
+ *                  type: boolean
+ *               comment:
+ *                  type: string
+ *             example:
+ *               userId: 5ebac534954b54139806c112
+ *               productId: 5ebac534954b54139806c112
+ *               orderId: 6603d90f7c2708f66ed2ee4c
+ *               rating: 0
+ *               isReview: false
+ *               comment: fake comment
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Message'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden' 
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
+ * 
  */
