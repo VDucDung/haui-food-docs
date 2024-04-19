@@ -175,6 +175,30 @@ components:
         phone: (+84)12345678
         message: Hello, world
 
+    Review:
+      type: object
+      properties:
+        id:
+          type: string
+          format: objectId
+        productId:
+          type: string
+          format: objectId
+        userId:
+          type: string
+          format: objectId
+        rating:
+          type: number
+        comment:
+          type: string
+      example:
+        id: 6603d90f7c2708f66ed2ee4c
+        productId: 6602f79a65bdc867e599b25e
+        userId: 65fd6f75b449440a709beaa7
+        rating: 0
+        isReview: false
+        comment: fake comment
+
     Success:
       type: object
       properties:
